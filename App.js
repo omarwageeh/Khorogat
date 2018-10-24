@@ -8,6 +8,7 @@ import styles from './styles.js';
 
 //TODO handle signup button {props name is "Signup"}
 
+
 class Item extends React.Component{
     state = {
       x: false,
@@ -36,7 +37,7 @@ export default class App extends React.Component {
       
       return (
         
-        <SwitchNavigator/>
+        <SwitchNavigator />
         )
   }
 }

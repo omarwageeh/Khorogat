@@ -8,13 +8,13 @@ class Item extends React.Component{
   state = {
     x: false,
   }
-render(){
-  return(<View style={styles.item}>
-    <Switch value = {this.state.x} onValueChange={()=>{this.setState({x:!this.state.x})}} />
-    <Text>{this.props.food}</Text>
-  </View>
-  )
-}
+  render(){
+    return(<View style={styles.item}>
+      <Text>{this.props.food}</Text>
+      <Switch value = {this.state.x} onValueChange={()=>{this.setState({x:!this.state.x})}} />
+    </View>
+    )
+  }
 }
 
 export default class ret extends React.Component {

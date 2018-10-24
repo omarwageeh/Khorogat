@@ -28,7 +28,7 @@
         
         "semi": "off",
 
-        "no-unused-vars":"warn"
+        "no-unused-vars":"off"
         
     }
 }

@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#fff',
-      alignItems: 'center',
+      alignItems: 'stretch',
       justifyContent: 'center',
     },
   
@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
       borderColor: 'black',
       borderRadius: 10,
       borderWidth: 0.5,
-      width: 400,
     },
   
     view: {
