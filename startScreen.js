@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Button, TextInput, KeyboardAvoidingView } from 'react-native';
+import { View, Button, TextInput, KeyboardAvoidingView, Text } from 'react-native';
 import styles from './styles.js';
-
+import {Constants} from 'expo'
 
 export default class Inputs extends React.Component {
     state = {
@@ -15,11 +15,14 @@ export default class Inputs extends React.Component {
     }
       render(){
         return(
+          
           <KeyboardAvoidingView
             style = {styles.container}
             behavior = 'padding'
             >
-            <View style = {styles.view}>
+            <Text style={{marginTop: Constants.statusBarHeight ,backgroundColor: 'rgb(56,68,90)', alignSelf: 'stretch', height: 50}}></Text>
+            <View style = {styles.startScreenView}>
+            
                   <TextInput
                     style = {styles.inputs}
                     placeholder = 'Username'
@@ -40,11 +43,11 @@ export default class Inputs extends React.Component {
                   <View style={styles.registerButtons}>
                   <Button
                           title ='Signup'
-                          onPress = {this.props.Signup}
+                          onPress = {() => this.props.navigation.navigate('Signup')}
                       />
-                    <Button
+                  <Button
                           title ='Login'
-                          onPress = {() => {this.props.navigation.navigate('Prefrence')}}
+                          onPress = {this.props.Login}
                       />
                   </View>
       

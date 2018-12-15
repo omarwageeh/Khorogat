@@ -1,14 +1,14 @@
 import React, { Component, PropTypes } from 'react';
-import {StyleSheet} from 'react-native';
-
-
+import {StyleSheet, Dimensions} from 'react-native';
+import {Constants} from 'expo';
+let {height, width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'stretch',
-      justifyContent: 'center',
+      //justifyContent: 'center',
     },
   
     inputs: {
@@ -18,9 +18,19 @@ const styles = StyleSheet.create({
       borderRadius: 10,
       borderWidth: 0.5,
     },
+    inputs2: {
+      padding: 5,
+      margin: 2,
+      borderColor: 'black',
+      borderRadius: 10,
+      borderWidth: 0.5,
+      width: width/2 - 4,
+    },
   
-    view: {
+    startScreenView: {
+      flex: 1,
       margin: 4,
+      justifyContent: 'center'
     },
   
     newPage: {
@@ -32,9 +42,12 @@ const styles = StyleSheet.create({
     },
   
     Content: {
-      flex: 1 ,
-      margin:30,
+      flex: 1,
+      backgroundColor: '#fff',
+      marginTop: Constants.statusBarHeight,
+      paddingLeft: 3,
     },
+    
     item: {
       flexDirection:'row',
       justifyContent: 'space-between',

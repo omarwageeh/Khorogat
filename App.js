@@ -3,7 +3,7 @@ import { Text, View, Button, TextInput, KeyboardAvoidingView, Switch  } from 're
 import {  createSwitchNavigator } from 'react-navigation';
 import startScreen from './startScreen.js';
 //import homeScreen from './homeScreen.js';
-import pScreen from './prefrenceScreen';
+import SignUp from './signupScreen.js';
 import styles from './styles.js';
 
 //TODO handle signup button {props name is "Signup"}
@@ -25,7 +25,7 @@ class Item extends React.Component{
 const SwitchNavigator = createSwitchNavigator({
     Login: startScreen,
     //Main: homeScreen,
-    Prefrence: pScreen
+    Signup: SignUp,
 },{
   initialRouteName: 'Login',
 });
@@ -36,7 +36,6 @@ export default class App extends React.Component {
   render() {
       
       return (
-        
         <SwitchNavigator />
         )
   }
