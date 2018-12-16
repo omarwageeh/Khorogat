@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './styles';
-import {  View, Text, Switch, ScrollView  } from 'react-native';
+import { View, Text, Switch, ScrollView } from 'react-native';
 import MultiSelect from 'react-native-multiple-select';
-import {Constants} from 'expo'
+import { Constants } from 'expo'
 
 
-class Sports extends React.Component{
+class Sports extends React.Component {
   state = {
     selectedItems: [],
   }
@@ -21,19 +21,19 @@ class Sports extends React.Component{
   }]
 
   onSelectedItemsChange = selectedItems => {
-    this.setState({selectedItems})
+    this.setState({ selectedItems })
   }
-  
 
-  render(){
-    return(
+
+  render() {
+    return (
       <View>
-        <Text style = {{margin: 4}}>Sports: </Text>
-        <MultiSelect 
-          items={this.items} 
-          uniqueKey='id' 
-          onSelectedItemsChange = {this.onSelectedItemsChange} 
-          selectedItems={this.state.selectedItems}  
+        <Text style={{ margin: 4 }}>Sports: </Text>
+        <MultiSelect
+          items={this.items}
+          uniqueKey='id'
+          onSelectedItemsChange={this.onSelectedItemsChange}
+          selectedItems={this.state.selectedItems}
           tagRemoveIconColor="#CCC"
           tagBorderColor="#CCC"
           tagTextColor="#CCC"
@@ -44,11 +44,11 @@ class Sports extends React.Component{
           submitButtonColor="#CCC"
           submitButtonText="Submit"
         />
-        </View>
+      </View>
     )
   }
 }
-class Food extends React.Component{
+class Food extends React.Component {
   state = {
     selectedItems: [],
   }
@@ -64,19 +64,19 @@ class Food extends React.Component{
   }]
 
   onSelectedItemsChange = selectedItems => {
-    this.setState({selectedItems})
+    this.setState({ selectedItems })
   }
-  
 
-  render(){
-    return(
+
+  render() {
+    return (
       <View>
-        <Text style = {{margin: 4}}>Food: </Text>
-        <MultiSelect 
-          items={this.items} 
-          uniqueKey='id' 
-          onSelectedItemsChange = {this.onSelectedItemsChange} 
-          selectedItems={this.state.selectedItems}  
+        <Text style={{ margin: 4 }}>Food: </Text>
+        <MultiSelect
+          items={this.items}
+          uniqueKey='id'
+          onSelectedItemsChange={this.onSelectedItemsChange}
+          selectedItems={this.state.selectedItems}
           tagRemoveIconColor="#CCC"
           tagBorderColor="#CCC"
           tagTextColor="#CCC"
@@ -87,11 +87,11 @@ class Food extends React.Component{
           submitButtonColor="#CCC"
           submitButtonText="Submit"
         />
-        </View>
+      </View>
     )
   }
 }
-class Activities extends React.Component{
+class Activities extends React.Component {
   state = {
     selectedItems: [],
   }
@@ -107,19 +107,19 @@ class Activities extends React.Component{
   }]
 
   onSelectedItemsChange = selectedItems => {
-    this.setState({selectedItems})
+    this.setState({ selectedItems })
   }
-  
 
-  render(){
-    return(
+
+  render() {
+    return (
       <View>
-        <Text style = {{margin: 4}}>Activities: </Text>
-        <MultiSelect 
-          items={this.items} 
-          uniqueKey='id' 
-          onSelectedItemsChange = {this.onSelectedItemsChange} 
-          selectedItems={this.state.selectedItems}  
+        <Text style={{ margin: 4 }}>Activities: </Text>
+        <MultiSelect
+          items={this.items}
+          uniqueKey='id'
+          onSelectedItemsChange={this.onSelectedItemsChange}
+          selectedItems={this.state.selectedItems}
           tagRemoveIconColor="#CCC"
           tagBorderColor="#CCC"
           tagTextColor="#CCC"
@@ -130,25 +130,25 @@ class Activities extends React.Component{
           submitButtonColor="#CCC"
           submitButtonText="Submit"
         />
-        </View>
+      </View>
     )
   }
 }
 
 export default class ret extends React.Component {
-  render(){
-    return(
-    
-      <ScrollView style = {{marginTop: Constants.statusBarHeight}}>
-        <Text style={{backgroundColor: 'rgb(56,68,90)', alignSelf: 'stretch', height: 50}}></Text>
+  render() {
+    return (
+
+      <ScrollView style={{ marginTop: Constants.statusBarHeight }}>
+        <Text style={{ backgroundColor: 'rgb(56,68,90)', alignSelf: 'stretch', height: 50 }}></Text>
         <Text>Prefrences</Text>
 
-        <Sports/>
-        <Food/>
-        <Activities/>
-      
+        <Sports />
+        <Food />
+        <Activities />
+
       </ScrollView>
-    
+
     );
   }
 }
