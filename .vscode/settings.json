@@ -1,3 +1,6 @@
 {
-    "workbench.colorTheme": "Default Dark+"
+    "workbench.colorTheme": "Default Dark+",
+    "window.zoomLevel": 0,
+    "workbench.iconTheme": "material-icon-theme",
+   
 }

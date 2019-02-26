@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Button, TextInput, KeyboardAvoidingView, Picker } from 'react-native';
-import styles from './styles.js';
+import styles from '../styles.js';
 import { Constants } from 'expo';
 
 
@@ -90,7 +90,7 @@ export default class SignupScreen extends React.Component {
                 <View style={{ margin: 5 }} >
                     <Button
                         title='Submit'
-                        onPress={() => this.props.submit}
+                        onPress={() => this.props.navigation.navigate('login')}
                     />
                 </View>
             </KeyboardAvoidingView>

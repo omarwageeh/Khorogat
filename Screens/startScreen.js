@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Button, TextInput, KeyboardAvoidingView, Text } from 'react-native';
-import styles from './styles.js';
-import { Constants } from 'expo'
-
+import { View, Button, TextInput, KeyboardAvoidingView } from 'react-native';
+import styles from '../styles';
+import { Header, Badge, Text } from 'react-native-elements';
+import { Constants } from 'expo';
 export default class Inputs extends React.Component {
   state = {
     name: '',
@@ -13,6 +13,7 @@ export default class Inputs extends React.Component {
   handleChange = key => val => {
     this.setState({ [key]: val })
   }
+ 
   render() {
     return (
 
@@ -20,7 +21,14 @@ export default class Inputs extends React.Component {
         style={styles.container}
         behavior='padding'
       >
-        <Text style={{ marginTop: Constants.statusBarHeight, backgroundColor: 'rgb(56,68,90)', alignSelf: 'stretch', height: 50 }}></Text>
+             <Header
+                    
+                    centerComponent={<Badge containerStyle={{backgroundColor:'black'}}><Text h4 style={{color: '#ffff'}}>Hangouts</Text></Badge>}
+
+                 
+
+                    containerStyle={{ backgroundColor: 'black', justifyContent: 'space-around', }}
+                />
         <View style={styles.startScreenView}>
 
           <TextInput
@@ -43,11 +51,11 @@ export default class Inputs extends React.Component {
           <View style={styles.registerButtons}>
             <Button
               title='Signup'
-              onPress={() => this.props.navigation.navigate('Signup')}
+              onPress={ () => this.props.navigation.navigate('signup') }
             />
             <Button
               title='Login'
-              onPress={this.props.Login}
+              onPress={() => this.props.navigation.navigate('DrawerNavigator') }
             />
           </View>
 

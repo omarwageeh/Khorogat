@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles';
+import styles from '../styles';
 import { View, Text, Switch, ScrollView } from 'react-native';
 import MultiSelect from 'react-native-multiple-select';
 import { Constants } from 'expo'
