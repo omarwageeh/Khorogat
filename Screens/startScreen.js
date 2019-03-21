@@ -2,7 +2,9 @@ import React from 'react';
 import { View, Button, TextInput, KeyboardAvoidingView } from 'react-native';
 import styles from '../styles';
 import { Header, Badge, Text } from 'react-native-elements';
-import { Constants } from 'expo';
+
+
+
 export default class Inputs extends React.Component {
   state = {
     name: '',
@@ -10,11 +12,17 @@ export default class Inputs extends React.Component {
     isValid: false,
   };
 
+ 
+
+    
+
   handleChange = key => val => {
     this.setState({ [key]: val })
   }
+
+
  
-  render() {
+  render(){
     return (
 
       <KeyboardAvoidingView
@@ -34,9 +42,9 @@ export default class Inputs extends React.Component {
           <TextInput
             style={styles.inputs}
             placeholder='Username'
-            value={this.state.name}
+            value={this.state.connection}
             underlineColorAndroid='transparent'
-            onChange={this.handleChange('name')}>
+           >
           </TextInput>
 
           <TextInput
@@ -47,11 +55,11 @@ export default class Inputs extends React.Component {
             underlineColorAndroid='transparent'
             onChange={this.handleChange('pass')} >
           </TextInput>
-
+    
           <View style={styles.registerButtons}>
             <Button
               title='Signup'
-              onPress={ () => this.props.navigation.navigate('signup') }
+              onPress={() => this.props.navigation.navigate('signup') }
             />
             <Button
               title='Login'
@@ -61,6 +69,8 @@ export default class Inputs extends React.Component {
 
         </View>
       </KeyboardAvoidingView>
-    )
+      )
+    }
   }
-}
+  
+

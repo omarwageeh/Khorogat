@@ -1,154 +1,149 @@
 import React from 'react';
-import styles from '../styles';
-import { View, Text, Switch, ScrollView } from 'react-native';
-import MultiSelect from 'react-native-multiple-select';
-import { Constants } from 'expo'
+import { View, ScrollView, Text } from 'react-native'
+import { Avatar } from 'react-native-elements';
+import style from '../../styles'
+import {Constants} from 'expo'
+class AvatarContainer extends React.Component{
+    state={
+       borderWidth: 0,
 
+    }
+    handlePress = () => {
+        if(this.state.borderWidth === 0)
+        this.setState({borderWidth: 3})
+        else
+        this.setState({borderWidth: 0})
+    }
 
-class Sports extends React.Component {
-  state = {
-    selectedItems: [],
-  }
-  items = [{
-    id: 0,
-    name: 'Football',
-  }, {
-    id: 1,
-    name: 'Tennis',
-  }, {
-    id: 2,
-    name: 'Gym',
-  }]
-
-  onSelectedItemsChange = selectedItems => {
-    this.setState({ selectedItems })
-  }
-
-
-  render() {
-    return (
-      <View>
-        <Text style={{ margin: 4 }}>Sports: </Text>
-        <MultiSelect
-          items={this.items}
-          uniqueKey='id'
-          onSelectedItemsChange={this.onSelectedItemsChange}
-          selectedItems={this.state.selectedItems}
-          tagRemoveIconColor="#CCC"
-          tagBorderColor="#CCC"
-          tagTextColor="#CCC"
-          selectedItemTextColor="#CCC"
-          selectedItemIconColor="#CCC"
-          itemTextColor="#000"
-          displayKey="name"
-          submitButtonColor="#CCC"
-          submitButtonText="Submit"
-        />
-      </View>
-    )
-  }
-}
-class Food extends React.Component {
-  state = {
-    selectedItems: [],
-  }
-  items = [{
-    id: 0,
-    name: 'Pizza',
-  }, {
-    id: 1,
-    name: 'Burger',
-  }, {
-    id: 2,
-    name: 'Pasta',
-  }]
-
-  onSelectedItemsChange = selectedItems => {
-    this.setState({ selectedItems })
-  }
-
-
-  render() {
-    return (
-      <View>
-        <Text style={{ margin: 4 }}>Food: </Text>
-        <MultiSelect
-          items={this.items}
-          uniqueKey='id'
-          onSelectedItemsChange={this.onSelectedItemsChange}
-          selectedItems={this.state.selectedItems}
-          tagRemoveIconColor="#CCC"
-          tagBorderColor="#CCC"
-          tagTextColor="#CCC"
-          selectedItemTextColor="#CCC"
-          selectedItemIconColor="#CCC"
-          itemTextColor="#000"
-          displayKey="name"
-          submitButtonColor="#CCC"
-          submitButtonText="Submit"
-        />
-      </View>
-    )
-  }
-}
-class Activities extends React.Component {
-  state = {
-    selectedItems: [],
-  }
-  items = [{
-    id: 0,
-    name: 'PlayStation',
-  }, {
-    id: 1,
-    name: 'Cinema',
-  }, {
-    id: 2,
-    name: 'Nile Cruse',
-  }]
-
-  onSelectedItemsChange = selectedItems => {
-    this.setState({ selectedItems })
-  }
-
-
-  render() {
-    return (
-      <View>
-        <Text style={{ margin: 4 }}>Activities: </Text>
-        <MultiSelect
-          items={this.items}
-          uniqueKey='id'
-          onSelectedItemsChange={this.onSelectedItemsChange}
-          selectedItems={this.state.selectedItems}
-          tagRemoveIconColor="#CCC"
-          tagBorderColor="#CCC"
-          tagTextColor="#CCC"
-          selectedItemTextColor="#CCC"
-          selectedItemIconColor="#CCC"
-          itemTextColor="#000"
-          displayKey="name"
-          submitButtonColor="#CCC"
-          submitButtonText="Submit"
-        />
-      </View>
-    )
-  }
+    render(){
+        return(
+            <Avatar
+                containerStyle={{borderColor: 'limegreen', borderWidth: this.state.borderWidth}}
+                rounded
+                onPress = {() =>{this.handlePress()}}
+                source={{
+                       uri:this.props.href, 
+                }}
+                size="medium"
+            />
+        )
+    }
 }
 
-export default class ret extends React.Component {
-  render() {
-    return (
 
-      <ScrollView style={{ marginTop: Constants.statusBarHeight }}>
-        <Text style={{ backgroundColor: 'rgb(56,68,90)', alignSelf: 'stretch', height: 50 }}></Text>
-        <Text>Prefrences</Text>
+//https://cdn1.iconfinder.com/data/icons/cartoon-snack/128/pizza-512.png
+//"http://192.168.1.4:8081/assets/./assets/splash.png"
+export default class AccountSettings extends React.Component{
+    state={
+        Food: [],
+        Sports: [],
+        Activities: [],
+    }
+    componentWillMount(){
+        let Arr = [];
+        let  i = 0;
+        for(i = 0; i < 5; i++){
+            Arr.push(<AvatarContainer href='http://192.168.1.55:8081/assets/./assets/avatar.png'/>)
+        }
+       this.setState({Food: [...Arr]})
+        let Sports = [];
+        i = 0;
+        for(i = 0; i < 5; i++){
+            Sports.push(<AvatarContainer href='http://192.168.1.55:8081/assets/./assets/avatar.png'/>)
+        }
+        this.setState({Sports: [...Sports]})
+        let Activities = [];
+        i = 0;
+        for(i = 0; i < 5; i++){
+            Activities.push(<AvatarContainer href='http://192.168.1.55:8081/assets/./assets/avatar.png'/>)
+        }
+        this.setState({Activities: [...Activities]})
+    }
+    render() {
+        return(
+            <ScrollView style={{
+                backgroundColor: '#fff',
+                marginTop: Constants.statusBarHeight
+                }}>
 
-        <Sports />
-        <Food />
-        <Activities />
+                <View style={{ alignItems:'center',backgroundColor: 'blue'}}><Text style={{color:'#fff',fontSize: 25, fontWeight:'bold'}}>Food</Text></View>
+                
+                <ScrollView style={{
+                    paddingHorizontal: 10
+                    }}>
+                    
+                    
+                    <View style={{justifyContent:'space-evenly',flexDirection:'row', marginTop: 3}}>
+                    {this.state.Food}
+                    </View>
+                    
+                    <View style={{justifyContent:'space-evenly',flexDirection:'row', marginTop: 3}}>
+                    {this.state.Food}
+                    </View>
+                    
+                    <View style={{justifyContent:'space-evenly',flexDirection:'row', marginTop: 3}}>
+                    {this.state.Food}
+                    </View>
+                
+                    <View style={{justifyContent:'space-evenly',flexDirection:'row', marginTop: 3}}>
+                    {this.state.Food}
+                    </View>
 
-      </ScrollView>
+                    
 
-    );
-  }
+                </ScrollView>
+                <View style={{ alignItems:'center',backgroundColor: 'blue'}}><Text style={{color:'#fff',fontSize: 25, fontWeight:'bold'}}>Sports</Text></View>
+                <ScrollView style={{
+                    paddingHorizontal: 10
+                    }}>
+                    
+                    
+                    <View style={{justifyContent:'space-evenly',flexDirection:'row', marginTop: 3}}>
+                    {this.state.Sports}
+                    </View>
+                    
+                    <View style={{justifyContent:'space-evenly',flexDirection:'row', marginTop: 3}}>
+                    {this.state.Sports}
+                    </View>
+                    
+                    <View style={{justifyContent:'space-evenly',flexDirection:'row', marginTop: 3}}>
+                    {this.state.Sports}
+                    </View>
+                
+                    <View style={{justifyContent:'space-evenly',flexDirection:'row', marginTop: 3}}>
+                    {this.state.Sports}
+                    </View>
+
+                    
+
+                </ScrollView>
+                <View style={{ alignItems:'center',backgroundColor: 'blue'}}><Text style={{color:'#fff',fontSize: 25, fontWeight:'bold'}}>Activities</Text></View>
+                <ScrollView style={{
+                    paddingHorizontal: 10
+                    }}>
+                    
+                    
+                    <View style={{justifyContent:'space-evenly',flexDirection:'row', marginTop: 3}}>
+                    {this.state.Activities}
+                    </View>
+                    
+                    <View style={{justifyContent:'space-evenly',flexDirection:'row', marginTop: 3}}>
+                    {this.state.Activities}
+                    </View>
+                    
+                    <View style={{justifyContent:'space-evenly',flexDirection:'row', marginTop: 3}}>
+                    {this.state.Activities}
+                    </View>
+                
+                    <View style={{justifyContent:'space-evenly',flexDirection:'row', marginTop: 3}}>
+                    {this.state.Activities}
+                    </View>
+
+                    
+
+                </ScrollView>
+
+            </ScrollView>
+        )  
+    }
 }

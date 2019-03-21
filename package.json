@@ -17,7 +17,9 @@
     "react-native-android-location-services-dialog-box": "^2.7.0",
     "react-native-elements": "^1.0.0-beta7",
     "react-native-multiple-select": "^0.4.4",
-    "react-navigation": "^2.18.0"
+    "react-native-tcp": "^3.3.0",
+    "react-navigation": "^2.18.0",
+    "socket.io-client": "^2.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

@@ -17,14 +17,12 @@
     ],
     "rules": {
         "indent":"off",
-
         "linebreak-style": "off",
         "quotes": "off",
         "no-console": "warn",
         "semi": "off",
-
+        "no-undef":"off",
         "no-unused-vars": "off",
-        
         "no-extra-semi":"off"
         
     }
