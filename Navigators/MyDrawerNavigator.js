@@ -4,10 +4,10 @@ import { createDrawerNavigator } from 'react-navigation';
 import accountSettings from '../Screens/drawerScreens/accountSettingsScreen'
 import oldTrips from '../Screens/drawerScreens/oldTripsScreen'
 import options from '../Screens/drawerScreens/optionsScreen'
-import MyStackNavigator from './MyStackNavigator'
+import HomeStackNavigator from './MyStackNavigator'
 
  const MyDrawerNavigator = createDrawerNavigator({
-  Home: MyStackNavigator,
+  Home: HomeStackNavigator,
   Account: accountSettings,
   OldTrips: oldTrips,
   Options: options,

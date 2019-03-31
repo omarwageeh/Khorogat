@@ -29,11 +29,12 @@ export default class Home extends React.Component {
                                 borderWidth: 0,
                                 borderRadius: 20,
                             }}
+                            onPress={()=>this.props.navigation.navigate('planningScreen')}
                         />}
 
                     rightComponent={<Icon name='map' type='font-awesome' color='black' underlayColor='transparent' onPress={() => this.props.navigation.navigate('Map')} />}
 
-                    containerStyle={{ backgroundColor: '#fff', justifyContent: 'space-around', }}
+                    containerStyle={{ backgroundColor: '#fff', justifyContent: 'space-around' }}
                 />
             </View>
         )
