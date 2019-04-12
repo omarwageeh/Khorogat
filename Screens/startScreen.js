@@ -42,7 +42,7 @@ export default class Inputs extends React.Component {
           <TextInput
             style={styles.inputs}
             placeholder='Username'
-            value={this.state.connection}
+            value={this.state.name}
             underlineColorAndroid='transparent'
            >
           </TextInput>
