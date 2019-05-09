@@ -52,6 +52,7 @@ export default class planningScreen extends React.Component{
             
         
         //this.props.navigation.navigate('responseScreen', {hi:'hi'})
+        this.props.navigation.navigate('responseScreen')
         //this._getGeoLocationAsync()
      }
 
