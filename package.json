@@ -10,19 +10,22 @@
   },
   "dependencies": {
     "eslint-plugin-react": "^7.11.1",
-    "expo": "^30.0.2",
-    "react": "16.3.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "expo": "^31.0.0",
+    "react": "16.5.0",
     "react-native-android-location-enabler": "^1.0.8",
     "react-native-android-location-services-dialog-box": "^2.7.0",
     "react-native-elements": "^1.0.0-beta7",
     "react-native-multiple-select": "^0.4.4",
+    "react-native-network-info": "^5.0.1",
     "react-native-tcp": "^3.3.0",
+    "react-native-vector-icons": "^6.4.2",
     "react-navigation": "^2.18.0",
     "socket.io-client": "^2.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
+    "babel-plugin-transform-react-jsx-source": "^6.22.0",
     "eslint": "^5.10.0",
     "eslint-config-google": "^0.11.0"
   }

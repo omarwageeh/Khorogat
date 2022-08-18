@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, ScrollView, TextInput, Button, KeyboardAvoidingView  } from 'react-native';
-import { Header, Icon} from 'react-native-elements';
+import { View, Text, ScrollView, TextInput, KeyboardAvoidingView  } from 'react-native';
+import { Header, Icon, Button} from 'react-native-elements';
 import AvatarContainer from '../../components/AvatarContainer';
 import { NavigationActions } from 'react-navigation'
 import Expo from 'expo'
@@ -15,6 +15,7 @@ export default class planningScreen extends React.Component{
         text1: '',
         text2: '',
         text3: '',
+        text4: '',
         geoLocation: '',
     }
    
@@ -26,7 +27,7 @@ export default class planningScreen extends React.Component{
     
   
     onPress = ()=>{
-        text = [this.state.text0, this.state.text1, this.state.text2, this.state.text3]
+        text = [this.state.text0, this.state.text1, this.state.text2, this.state.text3, this.state.text4]
         send = []
       //  if(this.state.Clicked[0])
       //      send.push({Movies: text[0]})
@@ -37,18 +38,18 @@ export default class planningScreen extends React.Component{
       //  if(this.state.Clicked[3])
       //      send.push({Food: text[3]})
       
-        send={categories:[], prices:[]}
-        send.prices = text;
-        send.categories = ['Movie', 'Coffe', 'Shopping', 'Food'];
+        send={
+            details:[text[0], text[1], text[2], text[3], text[4]], 
+            location:'NasrCity'
+        }
 
-       fetch('http://192.168.1.11:9000/api/contact', {
-               method: 'POST',
-               body: JSON.stringify(send),
-               headers:{
-                 'Content-Type': 'application/json'
-               }
-              })
-               .then((res)=> { console.log(res); return(res.json())}).then((res)=>{console.log(JSON.stringify(res))})
+    //    fetch('http://192.168.1.9:9000/api/contact', {
+    //            method: 'POST',
+    //            body: JSON.stringify(send),
+    //            headers:{
+    //              'Content-Type': 'application/json'
+    //            }
+    //         }).then((res)=> {return(res.json())}).then((res)=>{console.log(res),this.props.navigation.navigate('responseScreen', {res: res})}).catch()
             
         
         //this.props.navigation.navigate('responseScreen', {hi:'hi'})
@@ -65,22 +66,22 @@ export default class planningScreen extends React.Component{
     componentWillMount(){
 
        this.setState({AvatarArr: [...
-       [{id:0, avatar: <AvatarContainer text= 'Movies' borderColor='limegreen' size='large' href='https://cdn2.iconfinder.com/data/icons/maki/100/cinema-256.png' onPress={()=>this.clicked(0)}/>},
-       {id:1, avatar:<AvatarContainer text='Coffee' borderColor='limegreen' size='large' href='https://cdn0.iconfinder.com/data/icons/office-239/64/hot-coffee-cup-mug-capucino-256.png' onPress={()=>this.clicked(1)}/>},
-       {id:2, avatar: <AvatarContainer text='Shopping' borderColor='limegreen' size='large' href='https://cdn1.iconfinder.com/data/icons/feather-2/24/shopping-cart-256.png' onPress={()=>this.clicked(2)}/>},
-       {id:3, avatar: <AvatarContainer text='Food' borderColor='limegreen' size='large' href='https://cdn2.iconfinder.com/data/icons/food-drink-10/24/food-drink-36-256.png' onPress={()=>this.clicked(3)}/>}]]}) 
+       [{id:0, avatar: <AvatarContainer text= 'Movies' borderColor='limegreen'  size='large' img={require('./../../assets/New/Movies.jpg')} onPress={()=>this.clicked(0)}/>},
+       {id:1, avatar:<AvatarContainer text='Coffee' borderColor='limegreen'  size='large' img={require('./../../assets/New/Coffee.png')} onPress={()=>this.clicked(1)}/>},
+       {id:2, avatar: <AvatarContainer text='Shopping' borderColor='limegreen'  size='large' img={require('./../../assets/New/Shopping.jpg')} onPress={()=>this.clicked(2)}/>},
+       {id:3, avatar: <AvatarContainer text='Food' borderColor='limegreen'  size='large' img={require('./../../assets/New/Food.png')} onPress={()=>this.clicked(3)}/>}]]}) 
        
     }
    
     render(){
        return( 
        <KeyboardAvoidingView
-            style={{flex:1}}
+            style={{flex:1, paddingHorizontal: 5}}
             behavior='position'
         >
             <View style={{marginBottom: 20}}>
-                <Text style={{fontSize: 20, marginBottom:5}}>Hi, User Name</Text>
-                <Text>What are you planning for today ?</Text>
+                <Text style={{fontSize: 18, marginBottom:5}}>Hi</Text>
+                <Text style={{fontSize: 18, marginBottom:5}}>What are you planning for today ?</Text>
             </View>
             <View>
                 <Text>Select your interests</Text>
@@ -130,10 +131,29 @@ export default class planningScreen extends React.Component{
                         editable={this.state.Clicked[3]}
                         
                     />
-                     <Button
-                title="Solid Button"
-                onPress={()=>{this.onPress()}}
-            />
+                    <TextInput
+                        style={{marginBottom: 5, height: 40, borderColor: 'gray', borderWidth: 1, borderRadius: 10, paddingLeft: 5}}
+                        onChangeText={(text) => this.setState({text4: text})}
+                        value={this.state.text4}
+                        placeholder='Total'
+                        underlineColorAndroid='transparent'
+                        
+                    />
+                    <Button
+                            title="Find me a Plan"
+                            titleStyle={{ fontWeight: "700" }}
+
+                            buttonStyle={{
+                                backgroundColor: "black",
+                                width: this.props.width ,
+                                height: 40,
+                                marginTop: 20,
+                                borderColor: "grey",
+                                borderWidth: 0,
+                                borderRadius: 20,
+                            }}
+                            onPress={()=>this.onPress()}
+                        />
             </View>
             
            

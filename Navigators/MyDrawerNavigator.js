@@ -1,5 +1,4 @@
 import React from 'react';
-import homeScreen from '../Screens/drawerScreens/homeScreen'
 import { createDrawerNavigator } from 'react-navigation';
 import accountSettings from '../Screens/drawerScreens/accountSettingsScreen'
 import oldTrips from '../Screens/drawerScreens/oldTripsScreen'

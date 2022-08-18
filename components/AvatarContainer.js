@@ -1,37 +1,33 @@
 import React from 'react';
-import { View, ScrollView, Text } from 'react-native'
+import { View, ScrollView, Text, Image, TouchableHighlight } from 'react-native'
 import { Avatar } from 'react-native-elements';
 
 
 
 export default class AvatarContainer extends React.Component{
     state={
-       borderColor: '#d1dddd',
+       borderColor: '#ffff',
 
     }
    
     handlePress=()=>{
-        if(this.state.borderColor === '#d1dddd')
+        if(this.state.borderColor === '#ffff')
         this.setState({borderColor: 'limegreen'})
         else
-        this.setState({borderColor: '#d1dddd'})
+        this.setState({borderColor: '#ffff'})
     }
  
     render(){
         return(
-            <View style={{marginHorizontal: 3,alignItems:'center', backgroundColor: '#d1dddd', borderColor: this.state.borderColor, borderWidth: 3}}>
-                <Avatar
-                    containerStyle={{ }}
-                    rounded={this.props.rounded}
-                    avatarStyle={{backgroundColor:'#d1dddd'}}
-                    onPress = {()=>{this.handlePress(), this.props.onPress()}}
-                    source={{
-                        uri:this.props.href, 
-                    }}
-                    size={this.props.size}
-                />
-                <Text>{this.props.text}</Text>
-             </View>
+            <TouchableHighlight onPress = {()=>{this.handlePress(), this.props.onPress()}} underlayColor = '#ffff' style={{marginHorizontal: 3,alignItems:'center', backgroundColor: '#ffff', borderRadius: 25, height:100, width:100}}>
+                <View style={{borderColor: this.state.borderColor, borderWidth: 3, width:100, height:100, borderRadius: 25, alignItems: 'center'}}>
+                    <Image
+                        source={this.props.img}
+                        style={{borderRadius: 25, height:75, width:75}}
+                    />
+                    <Text>{this.props.text}</Text>
+                </View>
+             </TouchableHighlight>
         )
         
     }

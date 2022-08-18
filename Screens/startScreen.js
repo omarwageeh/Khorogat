@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Button, TextInput, KeyboardAvoidingView } from 'react-native';
+import { View,  TextInput, KeyboardAvoidingView } from 'react-native';
 import styles from '../styles';
-import { Header, Badge, Text } from 'react-native-elements';
+import { Header, Button, Badge, Text } from 'react-native-elements';
 
 
 
@@ -57,14 +57,32 @@ export default class Inputs extends React.Component {
           </TextInput>
     
           <View style={styles.registerButtons}>
+            
             <Button
-              title='Signup'
-              onPress={() => this.props.navigation.navigate('signup') }
-            />
-            <Button
-              title='Login'
-              onPress={() => this.props.navigation.navigate('DrawerNavigator') }
-            />
+                title="SignUp"
+                titleStyle={{ fontWeight: "500" }}
+
+                buttonStyle={{
+                    backgroundColor: "black",
+                    borderColor: "grey",
+                    borderWidth: 0,
+                    borderRadius: 10,
+                }}
+                onPress={()=>this.props.navigation.navigate('signup')}
+              />
+              <Button
+                title="Login"
+                titleStyle={{ fontWeight: "500" }}
+
+                buttonStyle={{
+                    backgroundColor: "black",
+                    borderColor: "grey",
+                    borderWidth: 0,
+                    borderRadius: 10,
+                }}
+                onPress={()=>this.props.navigation.navigate('DrawerNavigator')}
+              />
+            
           </View>
 
         </View>
